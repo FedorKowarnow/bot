@@ -12,6 +12,14 @@ func (c *Commander) List(inputMessage *tgbotapi.Message, productService *product
 		outputMSGText += p.Title
 		outputMSGText += "\n"
 	}
+
 	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, outputMSGText)
+	msg.ReplyMarkup = tgbotapi.NewInlineKeyboardMarkup(
+		tgbotapi.NewInlineKeyboardRow(
+
+			tgbotapi.NewInlineKeyboardButtonData("Next page", "some data"),
+		),
+	)
+
 	c.bot.Send(msg)
 }

@@ -35,6 +35,8 @@ func main() {
 				Commander.Help(update.Message)
 			case "list":
 				Commander.List(update.Message, productService)
+			case "get":
+				Commander.Get(update.Message)
 			default:
 				Commander.Default(update.Message)
 			}
